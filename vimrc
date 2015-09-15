@@ -109,3 +109,5 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " hi Search cterm=NONE ctermfg=grey ctermbg=DarkCyan
 " set hlsearch
+
+let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|git'

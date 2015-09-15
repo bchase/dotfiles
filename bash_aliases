@@ -13,7 +13,7 @@ alias h='cat ~/.zsh_history | grep'
 
 alias open='gnome-open'
 alias o=open
-alias clip='xclip -sel clip < '
+alias clip='xclip -sel clip'
 
 alias rscript='~/.scripts/rbscript.rb'
 alias 2mp3='~/.scripts/2mp3.rb'
@@ -45,6 +45,7 @@ alias llad='ls -lha | grep "^d"'
 alias f='fg'
 alias ff='fg'
 alias fgf='fg'
+alias fgj='fg'
 alias f1='fg %1'
 alias fg1='fg %1'
 alias f2='fg %2'
@@ -71,7 +72,7 @@ alias psg='ps -e | grep'
 alias cpr='cp -r'
 alias cpn='cp -n'
 alias cprn='cp -rn'
-alias mvn='mv -n'
+# alias mvn='mv -n'
 alias mvi='mv -i'
 
 alias ba='vim ~/.bash_aliases && source ~/.bash_aliases'
@@ -135,3 +136,6 @@ tm() { tree "$1" | m }
 alias mplayersub='mplayer -subcp utf8 -subfont "TakaoExGothic" -subfont-text-scale 3 -subfont-outline 1'
 
 alias rtks='cat /home/bosco/rtk/rtk.xml | grep '
+
+alias touchpadoff='synclient TouchpadOff=1'
+alias touchpadon='synclient TouchpadOff=0'
