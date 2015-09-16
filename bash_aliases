@@ -15,6 +15,7 @@ alias open='gnome-open'
 alias o=open
 alias clip='xclip -sel clip'
 
+alias json='~/.scripts/json.rb'
 alias rscript='~/.scripts/rbscript.rb'
 alias 2mp3='~/.scripts/2mp3.rb'
 

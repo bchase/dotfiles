@@ -1,10 +1,20 @@
 #!/usr/bin/env ruby
 
-require 'pry'
 require 'json'
+require 'pp'
 
-url    = ARGV[0]
-result = %x[curl "#{url}"]
-json   = JSON.parse result
+# # given JSON: {"data":{"url":"https://foo.bar/baz.boo","id":1}}}
+# $ curl localhost:4000/foo/1 | xargs -0 ./json.rb data url
+# https://foo.bar/baz.boo
 
-binding.pry
+str, keys = ARGV.pop, ARGV || []
+
+json = JSON.parse str.chomp
+
+unless keys.empty?
+  while key = keys.shift
+    json = json[key]
+  end
+end
+
+pp json
