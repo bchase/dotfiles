@@ -129,6 +129,7 @@ alias github=hub
 alias gh=hub
 
 alias ugist='gist --update-by-name'
+alias pgist='gist -p -o'
 
 # gsub() { grep -rl "$1" . | xargs sed -i "s/$1/$2/g" }
 
