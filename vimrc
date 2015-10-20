@@ -49,9 +49,10 @@ nnoremap <Bslash><Bslash> O<ESC>j
 nnoremap <SPACE> i <ESC>h
 
 "map jj to return to normal mode
-";; for the same, but one char left
 inoremap jj <ESC>
-inoremap ;; <ESC>la
+";; for the same, but one char left
+" inoremap ;; <ESC>la
+inoremap kk <ESC>la
 
 "switch ; and : mappings
 nnoremap ; :
@@ -110,4 +111,4 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " hi Search cterm=NONE ctermfg=grey ctermbg=DarkCyan
 " set hlsearch
 
-let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|/.git'
