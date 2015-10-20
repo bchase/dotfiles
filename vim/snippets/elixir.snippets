@@ -1,0 +1,76 @@
+snippet "
+	=> ${1:val}
+snippet m
+	%{${1}}
+snippet am
+	%{${1:key1}: ${2:val1}}
+snippet amm
+	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}}
+snippet ammm
+	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}, ${5:key3}: ${6:val3}}
+snippet sm
+	%{"${1:key1}" => ${2:val1}}
+snippet smm
+	%{"${1:key1}" => ${2:val1}, "${3:key2}" => ${4:val2}}
+snippet smmm
+	%{"${1:key1}" => ${2:val1}, "${3:key2}" => ${4:val2}, "${5:key3}" => ${6:val3}}
+snippet s
+	%${1:Struct}{${2}}
+snippet i
+	if ${1:condition} do
+		${2}
+	end
+snippet d
+	def ${1:name}(${2:params}) do
+		${3}
+	end
+snippet di
+	def ${1:name}(${2:params}), do: ${3}
+snippet dp
+	defp ${1:name}(${2:params}) do
+		${3}
+	end
+snippet dpi
+	defp ${1:name}(${2:params}), do: ${3}
+snippet dm
+	defmodule ${1:Name} do
+		${2}
+	end
+snippet dmm
+	defmodule ${1:Name1}.${2:Name2} do
+		${3}
+	end
+snippet p
+
+	|> ${1}
+snippet c
+	case ${1:switch} do
+		${2:case1} -> ${3:eval1}
+		_ -> ${4:pokemon}
+	end
+snippet f
+	fn(${1:params}) -> ${2} end
+snippet fn
+	fn ${1:params} -> ${2} end
+snippet af
+	&(${1})
+snippet afn
+	& ${1}
+snippet ff
+	fn(${1:params}) ->
+		${2}
+	end
+snippet al
+	alias ${1:NameSpace1}.${2:NameSpace2}
+snippet im
+	import ${1:NameSpace1}.${2:NameSpace2}
+snippet imo
+	import ${1:NameSpace1}.${2:NameSpace2}, only: [${3:func}: ${4:arity}]
+snippet u
+	use ${1:NameSpace1}.${2:NameSpace2}
+snippet uu
+	use ${1:NameSpace1}.${2:NameSpace2}, :${3:func}
+snippet ec
+	Ecto.Changeset
+snippet mec
+	%Ecto.Changeset{${1:key}: ${2:val}}
