@@ -29,6 +29,6 @@ HISTFILE=~/.zsh_history
 temp_histfile=~/.temp_histfile
 touch $temp_histfile
 grep -v -P ';rm ' $HISTFILE |
-grep -v -P ';git rm ' | 
+grep -v -P ';git rm ' |
 grep -v -P ';git reset ' > $temp_histfile
 cp $temp_histfile $HISTFILE

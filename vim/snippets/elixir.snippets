@@ -2,21 +2,53 @@ snippet "
 	=> ${1:val}
 snippet m
 	%{${1}}
-snippet am
+snippet ma
 	%{${1:key1}: ${2:val1}}
-snippet amm
+snippet mam
 	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}}
-snippet ammm
+snippet mamm
 	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}, ${5:key3}: ${6:val3}}
+snippet j
+	:${1:atom}
+snippet jk
+	${1:atom}: ${2:val}
+snippet jkl
+	${1:atom}: "${2:str}"
+snippet kj
+	"${1:str}": ${2:val}
+snippet lkj
+	"${1:str}": "${2:str}"
 snippet sm
 	%{"${1:key1}" => ${2:val1}}
 snippet smm
 	%{"${1:key1}" => ${2:val1}, "${3:key2}" => ${4:val2}}
 snippet smmm
 	%{"${1:key1}" => ${2:val1}, "${3:key2}" => ${4:val2}, "${5:key3}" => ${6:val3}}
+snippet pl
+	`:d`(${1})
+snippet wl
+	~w(${1})
+snippet t
+	{${1}}
+snippet tt
+	{:${1:ok}, ${2}}
+snippet l
+	[${1}]
+snippet kl
+	[${1:key}: ${2:val}]
+snippet kll
+	[${1:key}: ${2:val}, ${3:key}: ${4:val}]
+snippet kkl
+	${1:key}: ${2:val}
+snippet kkll
+	${1:key}: ${2:val}, ${3:key}: ${4:val}
 snippet s
+	"${1:str}"
+snippet st
 	%${1:Struct}{${2}}
-snippet i
+snippet stt
+	%${1:NS1}.${2:NS2}{${3}}
+snippet if
 	if ${1:condition} do
 		${2}
 	end
@@ -24,30 +56,66 @@ snippet d
 	def ${1:name}(${2:params}) do
 		${3}
 	end
+snippet dn
+	def ${1:name} do
+		${2}
+	end
 snippet di
 	def ${1:name}(${2:params}), do: ${3}
+snippet din
+	def ${1:name}, do: ${2}
 snippet dp
 	defp ${1:name}(${2:params}) do
 		${3}
 	end
 snippet dpi
 	defp ${1:name}(${2:params}), do: ${3}
+snippet da
+	def ${1:action}(conn, ${2:params}) do
+		${3}
+	end
+snippet daa
+	def ${1:action}(conn, %{"${2:key}" => ${3:var}}) do
+		${4}
+	end
+snippet mn
+	`MixProjectName()`.${1}
 snippet dm
-	defmodule ${1:Name} do
+	defmodule ${1:`MixProjectName()`} do
 		${2}
 	end
 snippet dmm
-	defmodule ${1:Name1}.${2:Name2} do
+	defmodule ${1:`MixProjectName()`}.${2:Module} do
 		${3}
+	end
+snippet dpm
+	defmodule `MixProjectName()`.${1:Module} do
+		${2}
+	end
+snippet dpc
+	defmodule `MixProjectName()`.${1:`GetPhoenixControllerName()`}Controller do
+		use `MixProjectName()`.Web, :controller
+
+		alias `MixProjectName()`.`g:phoenix_cname`
+
+		plug :scrub_params, "${2:`g:phoenix_cname`}" when action in [:create, :update]
+
+		def ${3:action}(params) do
+			${4}
+		end
 	end
 snippet p
 
 	|> ${1}
+snippet pp
+	|> ${1}
 snippet c
 	case ${1:switch} do
-		${2:case1} -> ${3:eval1}
+		${2:case1} -> ${3:run1}
 		_ -> ${4:pokemon}
 	end
+snippet cb
+		${1:condition} -> ${2:branch}
 snippet f
 	fn(${1:params}) -> ${2} end
 snippet fn
@@ -60,17 +128,131 @@ snippet ff
 	fn(${1:params}) ->
 		${2}
 	end
+snippet fc
+	${1:func}(${2:params})
+snippet ffc
+	${1:Module}.${2:func}(${3:params})
+snippet fffc
+	${1:`MixProjectName()`}.${2:Module}.${3:func}(${4:params})
 snippet al
-	alias ${1:NameSpace1}.${2:NameSpace2}
+	alias ${1:`MixProjectName()`}.${2:Module}
 snippet im
-	import ${1:NameSpace1}.${2:NameSpace2}
+	import ${1:`MixProjectName()`}.${2:Module}
 snippet imo
-	import ${1:NameSpace1}.${2:NameSpace2}, only: [${3:func}: ${4:arity}]
+	import ${1:`MixProjectName()`}.${2:Module}, only: [${3:func}: ${4:arity}]
 snippet u
-	use ${1:NameSpace1}.${2:NameSpace2}
+	use ${1:`MixProjectName()`}.${2:Module}
 snippet uu
-	use ${1:NameSpace1}.${2:NameSpace2}, :${3:func}
+	use ${1:`MixProjectName()`}.${2:Module}, :${3:func}
+snippet uw
+	use `MixProjectName()`.Web, :${1:func}
+snippet uwc
+	use `MixProjectName()`.Web, :controller
+snippet uwm
+	use `MixProjectName()`.Web, :model
+snippet uwv
+	use `MixProjectName()`.Web, :view
 snippet ec
 	Ecto.Changeset
 snippet mec
 	%Ecto.Changeset{${1:key}: ${2:val}}
+# alias mec -> ecm
+snippet ecm
+	%Ecto.Changeset{${1:key}: ${2:val}}
+snippet cs
+	changeset
+snippet pr
+	IEx.pry
+snippet prr
+	require IEx; IEx.pry
+snippet ar
+	alias `MixProjectName()`.Repo
+snippet am
+	`AliasPhoenixModelsLike(input('Characters in model name: '))`
+snippet ra
+	Repo.all(${1:query})
+snippet rd
+	Repo.delete(${1:resource})
+snippet rdd
+	Repo.delete!(${1:resource})
+snippet rg
+	Repo.get(${1:query})
+snippet rgg
+	Repo.get!(${1:query})
+snippet rgb
+	Repo.get_by(${1:Model}, ${2:attr}: "${3:val}")
+snippet rgbb
+	Repo.get_by!(${1:Model}, ${2:attr}: "${3:val}")
+snippet ri
+	Repo.insert(${1:changeset})
+snippet rii
+	Repo.insert!(${1:changeset})
+snippet ro
+	Repo.one(${1:query})
+snippet roo
+	Repo.one!(${1:query})
+snippet ru
+	Repo.update(${1:changeset})
+snippet ruu
+	Repo.update!(${1:changeset})
+snippet sti
+	String.to_integer(${1:str})
+snippet stii
+	String.to_integer(${1:str}, ${2:base_int})
+snippet stf
+	String.to_float(${1:str})
+snippet stl
+	String.to_char_list(${1:str})
+snippet con
+	cond do
+		${1}
+	end
+snippet pfi
+
+	|> put_flash(:info, "${1:info}")
+snippet pfe
+
+	|> put_flash(:error, "${1:error}")
+snippet r
+
+	|> render("${1:template}.${2:html}")
+snippet rt
+
+	|> redirect(to: "${1:/}")
+snippet rtp
+
+	|> redirect(to: ${1:user}_path(conn, :${2:action}))
+snippet ph
+	${1:user}_path(conn, :${2:action})
+snippet ts
+	to_string val
+snippet tss
+	to_string(val)
+snippet mod
+	__MODULE__
+snippet i
+	IO.puts ${1:val}
+snippet iop
+	IO.puts ${1:val}
+snippet ios
+	IO.inspect ${1:val}
+snippet gs
+	GenServer
+snippet re
+	{:reply, ${1:resp}, ${2:state}}
+snippet nr
+	{:noreply, ${1:state}}
+snippet e
+	Enum.${1:map}(&${2})
+snippet ee
+	Enum.each(& ${1:IO}.${2:puts} ${3:&1})
+snippet em
+	Enum.map(& ${1:Foo}.${2:bar} ${3:&1})
+snippet eee
+	Enum.each(fn ${1:params} -> ${2:IO}.${3:puts} ${4:params} end)
+snippet emm
+	Enum.map(fn ${1:params} -> ${2:Foo}.${3:Bar} ${4:params} end)
+snippet o
+	:ok
+snippet ot
+	{:ok, ${1}}

@@ -37,6 +37,7 @@ alias cddd='cd ..; cd ..'
 alias cdddd='cd ..; cd ..; cd ..'
 alias cddddd='cd ..; cd ..; cd ..; cd ..'
 
+alias sl='ls'
 alias ll='ls -lh'
 alias lla='ls -lha'
 alias lld='ls -lh | grep "^d"'
@@ -81,6 +82,11 @@ alias zh='vim ~/.zsh_history'
 alias ph='vim ~/.pry_history'
 alias deb='vim ~/.dotfiles/debian.sh'
 alias bits='vim ~/.bits'
+alias ve='vim ~/.dotfiles/vim/snippets/elixir.snippets'
+alias vrc='vim ~/.dotfiles/vimrc'
+alias df='cd ~/.dotfiles'
+
+alias phs='iex -S mix phoenix.server'
 
 alias r='rails'
 alias rs='rails server'
@@ -130,6 +136,10 @@ alias gh=hub
 
 alias ugist='gist --update-by-name'
 alias pgist='gist -p -o'
+
+alias lisp=sbcl
+alias clojure='java -cp ~/dev/clojure/clojure/clojure-1.7.0.jar clojure.main'
+
 
 # gsub() { grep -rl "$1" . | xargs sed -i "s/$1/$2/g" }
 

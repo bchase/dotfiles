@@ -99,6 +99,8 @@ nnoremap <C-=> za==zR
 
 command Prylast read ! tail -1 ~/.pry_history
 command Prylastfive read ! tail -5 ~/.pry_history
+command Shelllast read ! tail -2 ~/.zsh_history | head -1 | cut -c 16-
+command Shelllastfive read ! tail -6 ~/.zsh_history | head -5 | cut -c 16-
 
 " delete trailing \s on :w
 autocmd BufWritePre * :%s/\s\+$//e
@@ -112,3 +114,18 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " set hlsearch
 
 let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|/.git'
+
+
+" elixir
+function MixProjectName()
+  return system('head -1 mix.exs | pcregrep -o1 "(\w+)\." || echo Module')
+endfunction
+
+function AliasPhoenixModelsLike(model_name)
+  return system('cat web/models/* | pcregrep -o1 "defmodule ([\w.]+)" | grep -i ' . a:model_name . ' | sed "s/^/alias /"')
+endfunction
+
+function GetPhoenixControllerName()
+  let g:phoenix_cname=input('Controller/Model Name: ')
+  return g:phoenix_cname
+endfunction
