@@ -5,6 +5,7 @@ $dev_packages = [
   'vim',
   'curl',
   'zsh',
+  'rake',
   'lynx',
   'tree',
   'build-essential',
@@ -55,7 +56,7 @@ package { $dev_packages: }
 package { $lang_packages: }
 package { $other_packages: }
 
-package { 'rake': notify => Exec['rake-install-dotfiles'] }
+# package { 'rake': notify => Exec['rake-install-dotfiles'] }
 
 # # puppet module install puppetlabs-vcsrepo
 # vcsrepo { '/home/bosco/.dotfiles':
@@ -73,8 +74,8 @@ package { 'rake': notify => Exec['rake-install-dotfiles'] }
 #   ],
 # }
 exec { 'rake-install-dotfiles':
-  require     => Package['rake'],
-  refreshonly => true,
+  # require     => Package['rake'],
+  # refreshonly => true,
   path        => '/usr/bin/:/usr/local/bin/',
   cwd         => '/home/bosco/.dotfiles/',
   command     => 'sudo -u bosco rake install <.yeses',
@@ -143,7 +144,7 @@ exec { 'set-input-method-to-scim':
 exec { 'load-dconf-settings':
   path        => '/bin/:/usr/bin/',
   cwd         => '/home/bosco/.dotfiles/',
-  command     => 'cat linux/mate/dconf-root-dump | dconf load /',
+  command     => 'cat linux/mate/dconf-root-dump | sudo -u bosco dconf load /',
 }
 
 
