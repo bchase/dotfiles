@@ -1,8 +1,10 @@
-apt-get update &&
+cd ~/.dotfiles/puppet &&
+
+  apt-get update &&
   apt-get upgrade -y &&
   apt-get dist-upgrade -y &&
 
-  apt-get install git puppet &&
+  apt-get install puppet &&
 
   puppet module install puppetlabs-vcsrepo &&
   puppet module install maestrodev/rvm &&
@@ -11,6 +13,4 @@ apt-get update &&
   puppet module install puppetlabs-postgresql &&
   puppet module install jamesnetherton/google_chrome &&
 
-  git clone https://github.com/bchase/dotfiles.git .dotfiles &&
-  cd .dotfiles/puppet &&
   puppet apply manifest.pp

@@ -170,8 +170,6 @@ exec { 'load-dconf-settings':
 # manifest.pp
 #   [X] JP IME $ im-config -n scim
 #     [ ] untar ~/.scim config dir
-# dotfiles repo
-#   [ ] save modules to `.dotfiles/puppet/modules`
 # refactor
 #   [ ] use $USER ... /home/bosco/ -> $USER_HOME && bosco -> $USER
 # after...
@@ -183,8 +181,3 @@ exec { 'load-dconf-settings':
 #   [ ] `gem` requires `sudo`... (rvm module)
 #   [ ] update / upgrade / dist-upgrade
 #   [ ] using librarian-puppet for modules, puppet's ruby 2.1 error?
-#
-# $ sudo apt-get install git puppet &&
-#   git clone https://github.com/bchase/dotfiles.git .dotfiles &&
-#   cd .dotfiles && # rake install
-#   cd puppet && sudo puppet apply manifest.pp
