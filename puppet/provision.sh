@@ -4,7 +4,7 @@
 
 apt-get install -y puppet &&
 
-  puppet module install puppetlabs-vcsrepo &&
+  # puppet module install puppetlabs-vcsrepo &&
   puppet module install maestrodev/rvm &&
   puppet module install garethr-heroku &&
   puppet module install puppet-nodejs &&

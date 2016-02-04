@@ -55,27 +55,25 @@ package { $dev_packages: }
 package { $lang_packages: }
 package { $other_packages: }
 
-# puppet module install puppetlabs-vcsrepo
-vcsrepo { '/home/bosco/.dotfiles':
-  require  => Package['git'],
-  ensure   => present,
-  user     => 'bosco',
-  provider => 'git',
-  remote   => 'origin',
-  source   => {
-    'origin' => 'https://github.com/bchase/dotfiles.git'
-  },
-  notify   => [
-    Exec['rake-install-dotfiles'],
-    Exec['load-dconf-settings'],
-  ],
-}
+package { 'rake': notify => Exec['rake-install-dotfiles'] }
 
+# # puppet module install puppetlabs-vcsrepo
+# vcsrepo { '/home/bosco/.dotfiles':
+#   require  => Package['git'],
+#   ensure   => present,
+#   user     => 'bosco',
+#   provider => 'git',
+#   remote   => 'origin',
+#   source   => {
+#     'origin' => 'https://github.com/bchase/dotfiles.git'
+#   },
+#   notify   => [
+#     Exec['rake-install-dotfiles'],
+#     Exec['load-dconf-settings'],
+#   ],
+# }
 exec { 'rake-install-dotfiles':
-  require     => [
-    Vcsrepo['/home/bosco/.dotfiles'],
-    Rvm_gem['rake'],
-  ],
+  require     => Package['rake'],
   refreshonly => true,
   path        => '/usr/bin/:/usr/local/bin/',
   cwd         => '/home/bosco/.dotfiles/',
@@ -143,8 +141,6 @@ exec { 'set-input-method-to-scim':
 }
 
 exec { 'load-dconf-settings':
-  require     => Vcsrepo['/home/bosco/.dotfiles'],
-  refreshonly => true,
   path        => '/bin/:/usr/bin/',
   cwd         => '/home/bosco/.dotfiles/',
   command     => 'cat linux/mate/dconf-root-dump | dconf load /',
