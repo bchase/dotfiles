@@ -1,8 +1,8 @@
-apt-get update &&
-  apt-get upgrade -y &&
-  apt-get dist-upgrade -y &&
+# apt-get update &&
+#   apt-get upgrade -y &&
+#   apt-get dist-upgrade -y &&
 
-  apt-get install puppet &&
+apt-get install -y puppet &&
 
   puppet module install puppetlabs-vcsrepo &&
   puppet module install maestrodev/rvm &&
