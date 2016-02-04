@@ -180,6 +180,7 @@ exec { 'set-up-scim':
 #   [ ] chrome default browser + login
 #   [ ] ssh key (github / heroku / aws)
 # issues
+#   [ ] `mate-terminal` still requires profile config for zsh despite dconf
 #   [ ] auto xmodmap CAPS
 #   [ ] `gem` requires `sudo`... (rvm module)
 #   [ ] update / upgrade / dist-upgrade
