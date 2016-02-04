@@ -72,7 +72,10 @@ vcsrepo { '/home/bosco/.dotfiles':
 }
 
 exec { 'rake-install-dotfiles':
-  require     => Vcsrepo['/home/bosco/.dotfiles'],
+  require     => [
+    Vcsrepo['/home/bosco/.dotfiles'],
+    Rvm_gem['rake'],
+  ],
   refreshonly => true,
   path        => '/usr/bin/:/usr/local/bin/',
   cwd         => '/home/bosco/.dotfiles/',
