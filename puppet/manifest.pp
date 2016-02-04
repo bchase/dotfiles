@@ -176,10 +176,11 @@ exec { 'set-up-scim':
 # refactor
 #   [ ] use $USER ... /home/bosco/ -> $USER_HOME && bosco -> $USER
 # after...
-#   [ ] $ gist --login
 #   [ ] chrome default browser + login
+#   [ ] $ gist --login
 #   [ ] ssh key (github / heroku / aws)
 # issues
+#   [ ] dconf dumps wrecks window theme on ubuntu mate
 #   [ ] `mate-terminal` still requires profile config for zsh despite dconf
 #   [ ] auto xmodmap CAPS
 #   [ ] `gem` requires `sudo`... (rvm module)
