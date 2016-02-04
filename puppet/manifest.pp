@@ -147,6 +147,12 @@ exec { 'load-dconf-settings':
   command     => 'cat linux/mate/dconf-root-dump | sudo -u bosco dconf load /',
 }
 
+exec { 'set-up-scim':
+  path        => '/bin/:/usr/bin/',
+  # cwd         => '/home/bosco/.dotfiles/',
+  command     => 'tar -xvf /home/bosco/.dotfiles/linux/scim.tar -C /home/bosco/',
+}
+
 
 # ### Puppetfile ### (for `librarian-puppet`)
 # !/usr/bin/env ruby
@@ -167,9 +173,6 @@ exec { 'load-dconf-settings':
 # mod 'jamesnetherton/google_chrome'
 
 
-# manifest.pp
-#   [X] JP IME $ im-config -n scim
-#     [ ] untar ~/.scim config dir
 # refactor
 #   [ ] use $USER ... /home/bosco/ -> $USER_HOME && bosco -> $USER
 # after...
