@@ -77,16 +77,15 @@ alias cprn='cp -rn'
 # alias mvn='mv -n'
 alias mvi='mv -i'
 
-alias ba='vim ~/.bash_aliases && source ~/.bash_aliases'
-alias zh='vim ~/.zsh_history'
-alias ph='vim ~/.pry_history'
-alias deb='vim ~/.dotfiles/debian.sh'
-alias bits='vim ~/.bits'
-alias ve='vim ~/.dotfiles/vim/snippets/elixir.snippets'
-alias vrc='vim ~/.dotfiles/vimrc'
-alias df='cd ~/.dotfiles'
-
-alias phs='iex -S mix phoenix.server'
+alias ba=' vim ~/.bash_aliases && source ~/.bash_aliases'
+alias zh=' vim ~/.zsh_history'
+alias ph=' vim ~/.pry_history'
+alias deb=' vim ~/.dotfiles/debian.sh'
+alias bits=' vim ~/.bits'
+alias ve=' vim ~/.dotfiles/vim/snippets/elixir.snippets'
+alias vr=' vim ~/.dotfiles/vim/snippets/ruby.snippets'
+alias vrc=' vim ~/.dotfiles/vimrc'
+alias df=' cd ~/.dotfiles'
 
 alias r='rails'
 alias rs='rails server'
@@ -104,6 +103,14 @@ alias ra='rake'
 alias t='rake test'
 # alias t='ruby test/services/**/*_test.rb'
 alias rspec='rspec --color --format doc'
+
+alias im='iex -S mix'
+alias mec='mix ecto.create'
+alias mem='mix ecto.migrate'
+alias mps='iex -S mix phoenix.server'
+alias phs='iex -S mix phoenix.server'
+alias mpr='mix phoenix.routes'
+
 
 alias b='bundle'
 alias be='bundle exec'
@@ -134,6 +141,7 @@ alias s='git status -s'
 alias github=hub
 alias gh=hub
 
+alias gist='~/dev/ruby/gist/bin/gist'
 alias ugist='gist --update-by-name'
 alias pgist='gist -p -o'
 

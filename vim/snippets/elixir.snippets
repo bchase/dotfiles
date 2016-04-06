@@ -100,8 +100,8 @@ snippet dpc
 
 		plug :scrub_params, "${2:`g:phoenix_cname`}" when action in [:create, :update]
 
-		def ${3:action}(params) do
-			${4}
+		def ${3:action}(conn, ${4:params}) do
+			${5}
 		end
 	end
 snippet p
@@ -256,3 +256,21 @@ snippet o
 	:ok
 snippet ot
 	{:ok, ${1}}
+snippet mr
+	make_ref()
+snippet red
+	receive do
+		${1:msg} -> ${2:foo}
+	end
+snippet hs
+	def handle_cast(${1:msg}, ${2:val}) do
+		{:noreply, ${3:val}}
+	end
+snippet hl
+	def handle_call(${1:msg}, ${2:val}) do
+		{:reply, ${3:val}, ${4:val}}
+	end
+snippet hi
+	def handle_info(${1:msg}, ${2:val}) do
+		{:noreply, ${3:val}}
+	end
