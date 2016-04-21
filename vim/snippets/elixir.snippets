@@ -274,3 +274,17 @@ snippet hi
 	def handle_info(${1:msg}, ${2:val}) do
 		{:noreply, ${3:val}}
 	end
+snippet ds
+	defstruct ${1:key}: ${2:val}
+snippet dpr
+	defprotocol `MixProjectName()`.${1:Protocol} do
+		def ${2:func}(${3:args}) do
+			${4}
+		end
+	end
+snippet dim
+	defimpl `MixProjectName()`.${1:Protocol}, for: `MixProjectName()`.${2:Protocol} do
+		def ${3:func}(${4:args}) do
+			${5}
+		end
+	end

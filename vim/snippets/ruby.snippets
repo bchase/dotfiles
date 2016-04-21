@@ -411,6 +411,9 @@ snippet rrr
 	require 'net/http'
 	require 'json'
 	require 'ostruct'
+	require 'yaml'
+	# require 'nokogiri'
+	# require 'active_support/all'
 	# require 'active_support/core_ext/klass'
 	require 'pry'
 
@@ -441,4 +444,15 @@ snippet c
 snippet pn
 	module Kernel
 		alias :pn :Pathname
+	end
+snippet iv
+	include Virtus.model
+snippet vat
+	attribute :${1:name}, ${2: String}
+snippet mdth
+	class	MatchData
+		def to_h
+			[names, captures].transpose.to_h
+		end
+		alias :to_hash :to_h
 	end

@@ -118,7 +118,7 @@ let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|/.git'
 
 " elixir
 function MixProjectName()
-  return system('head -1 mix.exs | pcregrep -o1 "(\w+)\." || echo Module')
+  return system('(head -1 mix.exs 2>/dev/null || echo " Module.") | pcregrep -o1 " (\w+)\."')
 endfunction
 
 function AliasPhoenixModelsLike(model_name)
@@ -129,3 +129,6 @@ function GetPhoenixControllerName()
   let g:phoenix_cname=input('Controller/Model Name: ')
   return g:phoenix_cname
 endfunction
+
+
+let g:netrw_browsex_viewer = 'google-chrome'
