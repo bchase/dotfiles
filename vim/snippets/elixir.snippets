@@ -203,6 +203,8 @@ snippet stf
 	String.to_float(${1:str})
 snippet stl
 	String.to_char_list(${1:str})
+snippet str
+	String.${1:func}(${2:str}, ${3:arg})
 snippet con
 	cond do
 		${1}
@@ -238,7 +240,7 @@ snippet ios
 	IO.inspect ${1:val}
 snippet gs
 	GenServer
-snippet re
+snippet reply
 	{:reply, ${1:resp}, ${2:state}}
 snippet nr
 	{:noreply, ${1:state}}
@@ -288,3 +290,27 @@ snippet dim
 			${5}
 		end
 	end
+snippet	b
+	@behaviour ${1:`MixProjectName()`}.${2:Module}
+snippet doc
+	@doc "${1:doc_text}"
+snippet docc
+	@doc """
+	${1:doc_text}
+	"""
+snippet docs
+	@doc ~S"""
+	${1:doc_text}
+	"""
+snippet mdoc
+	@moduledoc """
+	${1:doc_text}
+	"""
+snippet re
+	~r{${1:re}}
+snippet sig
+	~${1:s}{${2:foo}}
+snippet sigo
+	~${1:s}{${2:foo}}${3:o}
+snippet stre
+	Stream.${1:map}(&${2})

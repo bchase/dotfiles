@@ -46,7 +46,7 @@ nnoremap <Bslash><Bslash> O<ESC>j
 
 "map space to insert space
 "map <S-SPACE> i <ESC>
-nnoremap <SPACE> i <ESC>h
+nnoremap <SPACE> i <ESC>
 
 "map jj to return to normal mode
 inoremap jj <ESC>
