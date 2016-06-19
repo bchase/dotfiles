@@ -80,9 +80,8 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 "thor syntax highlighting
 au BufRead,BufNewFile *.thor set ft=ruby
 
-"thor syntax highlighting
-au BufRead,BufNewFile *.md set ft=
-au BufRead,BufNewFile *.markdown set ft=
+" set markdown syntax highlighting for .md files
+au BufRead,BufNewFile *.md set ft=markdown
 
 "text folding in coffeescript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -132,3 +131,12 @@ endfunction
 
 
 let g:netrw_browsex_viewer = 'google-chrome'
+
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+" let mapleader=','
+" if exists(":Tabularize")
+"   nmap <Leader>a= :Tabularize /=<CR>
+"   vmap <Leader>a= :Tabularize /=<CR>
+"   nmap <Leader>a: :Tabularize /:\zs<CR>
+"   vmap <Leader>a: :Tabularize /:\zs<CR>
+" endif

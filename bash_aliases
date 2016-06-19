@@ -68,6 +68,8 @@ alias gvb='grep -v "^Binary"'
 alias gvi='grep -vi'
 alias giv='grep -vi'
 alias gri='grep -Ri'
+alias pgr='pcregrep'
+alias pgrr='pcregrep -r'
 
 alias psg='ps -e | grep'
 
@@ -105,6 +107,7 @@ alias t='rake test'
 alias rspec='rspec --color --format doc'
 alias rsp='bundle exec rspec'
 
+alias i='iex'
 alias im='iex -S mix'
 alias mec='mix ecto.create'
 alias mem='mix ecto.migrate'

@@ -136,8 +136,12 @@ snippet fffc
 	${1:`MixProjectName()`}.${2:Module}.${3:func}(${4:params})
 snippet al
 	alias ${1:`MixProjectName()`}.${2:Module}
+snippet all
+	alias ${1:`MixProjectName()`}.{${2:Module}}
 snippet im
 	import ${1:`MixProjectName()`}.${2:Module}
+snippet imef
+	import Ecto.Query, only: [from: 2]
 snippet imo
 	import ${1:`MixProjectName()`}.${2:Module}, only: [${3:func}: ${4:arity}]
 snippet u
@@ -314,3 +318,10 @@ snippet sigo
 	~${1:s}{${2:foo}}${3:o}
 snippet stre
 	Stream.${1:map}(&${2})
+snippet w
+	with {${1::ok}, ${2::val}} <- ${3:func}(${4:params}),
+	do: ${5:func}(${6:val})
+snippet cu
+	current_user
+snippet cuu
+	conn.assigns.current_user
