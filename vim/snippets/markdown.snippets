@@ -4,12 +4,13 @@ snippet img
 	![${1:alt}](${2:#tk-url})
 snippet jp
 	---
-	title:      ${1:title}
+	permalink:  `expand('%:r')`
+	title:      ${1:`expand('%:r')`}
 	subtitle:   ${2:subtitle}
 	author:     Brad
 	layout:     post
-	header-img: "img/tk-bg.jpg"
-	date:      `strftime("%Y/%m/%d 00:00:00")`
+	header-img: img/`expand('%:r')`-bg.jpg
+	date:       `strftime("%Y/%m/%d 00:00:00")`
 	---
 
 	${3:post}
