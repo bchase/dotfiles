@@ -86,6 +86,7 @@ alias deb=' vim ~/.dotfiles/debian.sh'
 alias bits=' vim ~/.bits'
 alias ve=' vim ~/.dotfiles/vim/snippets/elixir.snippets'
 alias vr=' vim ~/.dotfiles/vim/snippets/ruby.snippets'
+alias vmd=' vim ~/.dotfiles/vim/snippets/markdown.snippets'
 alias vrc=' vim ~/.dotfiles/vimrc'
 alias df=' cd ~/.dotfiles'
 

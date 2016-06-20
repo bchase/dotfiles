@@ -80,8 +80,14 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 "thor syntax highlighting
 au BufRead,BufNewFile *.thor set ft=ruby
 
+
 " set markdown syntax highlighting for .md files
 au BufRead,BufNewFile *.md set ft=markdown
+" consider Jekyll YAML to be a comment
+au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
+" syntax highlighting for <pre><code> in markdown
+let g:markdown_fenced_languages = ['ruby', 'elixir', 'sh', 'yaml', 'javascript', 'html', 'coffee']
+
 
 "text folding in coffeescript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
