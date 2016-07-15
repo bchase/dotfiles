@@ -70,6 +70,17 @@ alias giv='grep -vi'
 alias gri='grep -Ri'
 alias pgr='pcregrep'
 alias pgrr='pcregrep -r'
+grp() { # grep Phoenix dir
+  grep -R $1 2> /dev/null |
+  grep -v "^node_modules/" |
+  grep -v "^deps/" |
+  grep -v "^_build/" |
+  grep -v  "^bower_components/" |
+  grep -v  "^priv/static/" |
+  grep -v  "^erl_crash.dump" |
+  grep -v "^Binary"
+}
+grpm() { grp $1 | more }
 
 alias psg='ps -e | grep'
 
