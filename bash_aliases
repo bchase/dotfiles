@@ -21,6 +21,7 @@ alias 2mp3='~/.scripts/2mp3.rb'
 
 alias sagi='sudo apt-get install'
 alias sagiy='sudo apt-get install -y'
+alias agd='apt-cache show'
 alias gsm='gnome-system-monitor'
 alias msm='mate-system-monitor'
 alias ack=ack-grep
@@ -71,7 +72,7 @@ alias gri='grep -Ri'
 alias pgr='pcregrep'
 alias pgrr='pcregrep -r'
 grp() { # grep Phoenix dir
-  grep -R $1 2> /dev/null |
+  grep -R $1 $2 2> /dev/null |
   grep -v "^node_modules/" |
   grep -v "^deps/" |
   grep -v "^_build/" |
@@ -91,7 +92,7 @@ alias cprn='cp -rn'
 alias mvi='mv -i'
 
 alias ba=' vim ~/.bash_aliases && source ~/.bash_aliases'
-alias zh=' vim ~/.zsh_history'
+alias zh=' vim "+normal G" ~/.zsh_history'
 alias ph=' vim ~/.pry_history'
 alias deb=' vim ~/.dotfiles/debian.sh'
 alias bits=' vim ~/.bits'
@@ -99,7 +100,10 @@ alias ve=' vim ~/.dotfiles/vim/snippets/elixir.snippets'
 alias vr=' vim ~/.dotfiles/vim/snippets/ruby.snippets'
 alias vmd=' vim ~/.dotfiles/vim/snippets/markdown.snippets'
 alias vrc=' vim ~/.dotfiles/vimrc'
-alias df=' cd ~/.dotfiles'
+alias hdf=' cd ~/.dotfiles'
+alias to=' vim todo'
+
+alias re='ruby -pe'
 
 alias r='rails'
 alias rs='rails server'
@@ -132,7 +136,9 @@ alias mt='mix test'
 alias imt='iex -S mix test'
 alias imtt='iex -S mix test --trace'
 alias mdg='mix deps.get'
+alias mc='mix compile'
 alias mdgr='mix deps | grep'
+alias ni='npm install'
 
 
 alias b='bundle'

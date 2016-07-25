@@ -7,6 +7,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'lrvick/Conque-Shell'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'junegunn/goyo.vim'
 call vundle#end()
 
 syntax on
@@ -128,6 +131,18 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|/.git'
 
 
+let g:netrw_browsex_viewer = 'google-chrome'
+
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+" let mapleader=','
+" if exists(":Tabularize")
+"   nmap <Leader>a= :Tabularize /=<CR>
+"   vmap <Leader>a= :Tabularize /=<CR>
+"   nmap <Leader>a: :Tabularize /:\zs<CR>
+"   vmap <Leader>a: :Tabularize /:\zs<CR>
+" endif
+
+
 " elixir
 function MixProjectName()
   return system('(head -1 mix.exs 2>/dev/null || echo " Module.") | pcregrep -o1 " (\w+)\."')
@@ -142,14 +157,21 @@ function GetPhoenixControllerName()
   return g:phoenix_cname
 endfunction
 
-
-let g:netrw_browsex_viewer = 'google-chrome'
-
-" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-" let mapleader=','
-" if exists(":Tabularize")
-"   nmap <Leader>a= :Tabularize /=<CR>
-"   vmap <Leader>a= :Tabularize /=<CR>
-"   nmap <Leader>a: :Tabularize /:\zs<CR>
-"   vmap <Leader>a: :Tabularize /:\zs<CR>
-" endif
+" function RunRubyNoSingleQuotes(ruby)
+"   return system("ruby -e '" . a:ruby . "'")
+" endfunction
+"
+" " ~/currline.rb
+" function ReplaceCurrentLineWithSnakeCase()
+"   let old_line=getline('.')
+"   " let old_cpos=getpos('.')
+"   echo old_line
+"
+"   let ruby='line = "' . old_line . '"; sel = line[/(\-\s*[ \w]+\s*\-)/, 1]; rep = sel.gsub(/\s*-$/,"").gsub(/^-\s*/,"").gsub(/ /,"_"); print line.sub(sel, rep)'
+"   let new_line=RunRubyNoSingleQuotes(ruby)
+"
+"   call setline('.', new_line)
+"   " call setpos('.', old_cpos)
+"
+"   return ''
+" endfunction

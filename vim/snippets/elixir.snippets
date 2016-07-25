@@ -1,7 +1,7 @@
 snippet "
 	=> ${1:val}
 snippet m
-	%{${1}}
+	%{${1}}${2}
 snippet ma
 	%{${1:key1}: ${2:val1}}
 snippet mam
@@ -44,6 +44,8 @@ snippet kkll
 	${1:key}: ${2:val}, ${3:key}: ${4:val}
 snippet s
 	"${1:str}"
+snippet ss
+	#{${1:str}}
 snippet st
 	%${1:Struct}{${2}}
 snippet stt
@@ -96,7 +98,7 @@ snippet dpc
 	defmodule `MixProjectName()`.${1:`GetPhoenixControllerName()`}Controller do
 		use `MixProjectName()`.Web, :controller
 
-		alias `MixProjectName()`.`g:phoenix_cname`
+		alias `MixProjectName()`.{Repo, `g:phoenix_cname`}
 
 		plug :scrub_params, "${2:`g:phoenix_cname`}" when action in [:create, :update]
 
@@ -138,6 +140,16 @@ snippet al
 	alias ${1:`MixProjectName()`}.${2:Module}
 snippet all
 	alias ${1:`MixProjectName()`}.{${2:Module}}
+snippet alr
+	alias `MixProjectName()`.{Repo}
+	${1}
+snippet alrm
+	alias ${1:`MixProjectName()`}.{Repo, ${2:Module}}
+snippet alru
+	alias `MixProjectName()`.{Repo, User}
+	${1}
+snippet alrum
+	alias ${1:`MixProjectName()`}.{Repo, User, ${2:Module}}
 snippet im
 	import ${1:`MixProjectName()`}.${2:Module}
 snippet imef
@@ -325,3 +337,5 @@ snippet cu
 	current_user
 snippet cuu
 	conn.assigns.current_user
+snippet -
+	`ReplaceCurrentLineWithSnakeCase()`
