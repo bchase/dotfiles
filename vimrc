@@ -10,6 +10,8 @@ Plugin 'slashmili/alchemist.vim'
 Plugin 'lrvick/Conque-Shell'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 syntax on
@@ -175,3 +177,6 @@ endfunction
 "
 "   return ''
 " endfunction
+
+" inline elixir func
+" 0/) do\\\a,jjA:jjJjddkw

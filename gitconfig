@@ -6,3 +6,6 @@
 [core]
 	editor = vim
 	excludesfile = /home/bosco/.gitignore
+[alias]
+	thank = blame
+	praise = blame

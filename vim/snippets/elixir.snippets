@@ -1,5 +1,23 @@
-snippet "
-	=> ${1:val}
+snippet mm
+	Map.${1:func}(${2:val}) ${3}
+snippet mmm
+	Map.${1:func} ${2:val}
+snippet mk
+	Map.keys(${1:map}) ${2}
+snippet mkw
+	Map.keys ${1:map}
+snippet mhk
+	Map.has_key?(${1:map}, ${2:key}) ${3}
+snippet mhkw
+	Map.has_key? ${1:map}, ${2:key}
+snippet mg
+	Map.get(${1:map}, ${2:key}) ${3}
+snippet mgg
+	Map.get ${1:map}, ${2:key}
+snippet mp
+	Map.put(${1:map}, ${2:key}, ${3:val}) ${4}
+snippet mpp
+	Map.put ${1:map}, ${2:key}, ${3:val}
 snippet m
 	%{${1}}${2}
 snippet ma
@@ -8,6 +26,10 @@ snippet mam
 	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}}
 snippet mamm
 	%{${1:key1}: ${2:val1}, ${3:key2}: ${4:val2}, ${5:key3}: ${6:val3}}
+snippet mc
+	%{conn: conn${1}} ${2}
+snippet mcu
+	%{conn: conn, user: user${1}} ${2}
 snippet j
 	:${1:atom}
 snippet jk
@@ -199,10 +221,6 @@ snippet rgb
 	Repo.get_by(${1:Model}, ${2:attr}: "${3:val}")
 snippet rgbb
 	Repo.get_by!(${1:Model}, ${2:attr}: "${3:val}")
-snippet ri
-	Repo.insert(${1:changeset})
-snippet rii
-	Repo.insert!(${1:changeset})
 snippet ro
 	Repo.one(${1:query})
 snippet roo
@@ -243,9 +261,9 @@ snippet rtp
 snippet ph
 	${1:user}_path(conn, :${2:action})
 snippet ts
-	to_string val
+	to_string ${1:val}
 snippet tss
-	to_string(val)
+	to_string(${1:val})${2}
 snippet mod
 	__MODULE__
 snippet i
@@ -262,6 +280,8 @@ snippet nr
 	{:noreply, ${1:state}}
 snippet e
 	Enum.${1:map}(&${2})
+snippet ei
+	Enum.into(${1:%{}})${2}
 snippet ee
 	Enum.each(& ${1:IO}.${2:puts} ${3:&1})
 snippet em
@@ -293,7 +313,7 @@ snippet hi
 		{:noreply, ${3:val}}
 	end
 snippet ds
-	defstruct ${1:key}: ${2:val}
+	defstruct [${1}]
 snippet dpr
 	defprotocol `MixProjectName()`.${1:Protocol} do
 		def ${2:func}(${3:args}) do
@@ -337,5 +357,41 @@ snippet cu
 	current_user
 snippet cuu
 	conn.assigns.current_user
+snippet h
+	=> ${1}
+snippet hr
+	=> ${1}
+snippet ree
+	Regex.${1:run}(~r{${2:re}}, ${3:str}) ${4}
+snippet a
+	:${1:atom}
 snippet -
 	`ReplaceCurrentLineWithSnakeCase()`
+snippet dpv
+	defmodule ${1:`MixProjectName()`}.${2:Resource}View do
+		use PhoenixTemplate.Web, :view ${3}
+	end
+snippet isn
+	is_nil(${1:val})
+snippet isb
+	is_binary(${1:str})
+snippet ism
+	is_map(${1:map})
+snippet isa
+	is_atom(${1:atom})
+snippet ist
+	is_${1:type}(${2:val})
+snippet ri
+	raise inspect ${1:val}
+snippet reqd
+	@required_attrs ~i(${1:atom})
+snippet reqdd
+	@required_attrs [${1:atom}]
+snippet req
+	@required_attrs${1}
+snippet optd
+	@optional_attrs ~i(${1:atom})
+snippet optdd
+	@optional_attrs [${1:atom}]
+snippet opt
+	@optional_attrs${1}

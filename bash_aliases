@@ -11,6 +11,8 @@ alias p='pry'
 alias m='more'
 alias h='cat ~/.zsh_history | grep'
 
+alias mdp='mkdir -p'
+
 alias open='gnome-open'
 alias o=open
 alias clip='xclip -sel clip'
@@ -104,6 +106,7 @@ alias hdf=' cd ~/.dotfiles'
 alias to=' vim todo'
 
 alias re='ruby -pe'
+alias rv='ruby -v'
 
 alias r='rails'
 alias rs='rails server'
@@ -123,8 +126,12 @@ alias t='rake test'
 alias rspec='rspec --color --format doc'
 alias rsp='bundle exec rspec'
 
+alias ev='elixir -v'
+alias el='cd ~/dev/elixir'
+
 alias i='iex'
 alias im='iex -S mix'
+alias imr='iex -S mix run'
 alias mec='mix ecto.create'
 alias mem='mix ecto.migrate'
 alias mecm='mix ecto.create && mix ecto.migrate'
@@ -137,6 +144,8 @@ alias imt='iex -S mix test'
 alias imtt='iex -S mix test --trace'
 alias mdg='mix deps.get'
 alias mc='mix compile'
+alias mdc='mix deps.compile'
+alias mh='mix help | grep'
 alias mdgr='mix deps | grep'
 alias ni='npm install'
 
@@ -164,6 +173,7 @@ alias agcam='git commit --amend -am'
 alias gpa='git push origin --all'
 alias gll='git log --oneline --decorate --graph'
 alias gld='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
+alias gdh='git diff HEAD'
 alias gdl='git diff "HEAD^"'
 alias c='git commit -am'
 alias s='git status -s'
@@ -181,6 +191,7 @@ alias clojure='java -cp ~/dev/clojure/clojure/clojure-1.7.0.jar clojure.main'
 # gsub() { grep -rl "$1" . | xargs sed -i "s/$1/$2/g" }
 
 tm() { tree "$1" | m }
+tdm() { tree -d "$1" | m }
 
 alias mplayersub='mplayer -subcp utf8 -subfont "TakaoExGothic" -subfont-text-scale 3 -subfont-outline 1'
 
@@ -188,3 +199,6 @@ alias rtks='cat /home/bosco/rtk/rtk.xml | grep '
 
 alias touchpadoff='synclient TouchpadOff=1'
 alias touchpadon='synclient TouchpadOff=0'
+
+alias r2='ssh rpi2'
+alias r3='ssh rpi3'
