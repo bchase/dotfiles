@@ -3,7 +3,7 @@ set nocompatible
 call pathogen#infect()
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'slashmili/alchemist.vim'
@@ -12,11 +12,22 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'jparise/vim-graphql'
+Plugin 'neovimhaskell/haskell-vim'
 call vundle#end()
+
+call plug#begin()
+Plug 'bchase/elm-vim'
+call plug#end()
+let g:elm_format_autosave = 1
+let g:elm_format_two_spaces = 1
+
 
 syntax on
 " set t_Co=256
 " color dracula
+filetype on
 filetype plugin indent on
 
 set tabstop=2
@@ -98,7 +109,7 @@ au BufRead,BufNewFile *.md set ft=markdown
 " consider Jekyll YAML to be a comment
 au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 " syntax highlighting for <pre><code> in markdown
-let g:markdown_fenced_languages = ['ruby', 'elixir', 'sh', 'yaml', 'javascript', 'html', 'coffee']
+let g:markdown_fenced_languages = ['ruby', 'elixir', 'sh', 'yaml', 'javascript', 'html', 'coffee', 'elm']
 
 
 "text folding in coffeescript

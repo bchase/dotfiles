@@ -148,6 +148,8 @@ alias mdc='mix deps.compile'
 alias mh='mix help | grep'
 alias mdgr='mix deps | grep'
 alias ni='npm install'
+alias nis='npm install --save'
+alias nisd='npm install --save-dev'
 
 
 alias b='bundle'
