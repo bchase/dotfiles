@@ -19,6 +19,7 @@ alias clip='xclip -sel clip'
 
 alias json='~/.scripts/json.rb'
 alias rscript='~/.scripts/rbscript.rb'
+alias hscript='~/.scripts/haskell-script.hs'
 alias 2mp3='~/.scripts/2mp3.rb'
 
 alias sagi='sudo apt-get install'
