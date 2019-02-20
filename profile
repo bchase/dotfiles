@@ -32,3 +32,6 @@ grep -v -P ';rm ' $HISTFILE |
 grep -v -P ';git rm ' |
 grep -v -P ';git reset ' > $temp_histfile
 cp $temp_histfile $HISTFILE
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
