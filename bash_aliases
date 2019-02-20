@@ -183,7 +183,7 @@ alias s='git status -s'
 alias github=hub
 alias gh=hub
 
-alias gist='~/dev/ruby/gist/bin/gist'
+# alias gist='~/dev/ruby/gist/bin/gist'
 alias ugist='gist --update-by-name'
 alias pgist='gist -p -o'
 
