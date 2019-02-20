@@ -15,6 +15,13 @@ Plugin 'mxw/vim-jsx'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'jparise/vim-graphql'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'idris-hackers/idris-vim'
+Plugin 'adimit/prolog.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'eagletmt/unite-haddock'
+Plugin 'vim-scripts/mips.vim'
+Plugin 'wlangstroth/vim-racket'
 call vundle#end()
 
 call plug#begin()
@@ -103,13 +110,15 @@ au BufRead,BufNewFile *.hamlc set ft=haml
 "thor syntax highlighting
 au BufRead,BufNewFile *.thor set ft=ruby
 
+"MIPS syntax highlighting
+au BufRead,BufNewFile *.s set ft=mips
 
 " set markdown syntax highlighting for .md files
 au BufRead,BufNewFile *.md set ft=markdown
 " consider Jekyll YAML to be a comment
 au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 " syntax highlighting for <pre><code> in markdown
-let g:markdown_fenced_languages = ['ruby', 'elixir', 'sh', 'yaml', 'javascript', 'html', 'coffee', 'elm']
+let g:markdown_fenced_languages = ['ruby', 'elixir', 'sh', 'yaml', 'javascript', 'html', 'coffee', 'elm', 'haskell']
 
 
 "text folding in coffeescript
