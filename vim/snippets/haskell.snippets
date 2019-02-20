@@ -1,0 +1,44 @@
+snippet lp
+	{-# LANGUAGE ${1:PRAGMA} #-}
+snippet oghc
+	{-# OPTIONS_GHC ${1:option} #-}
+snippet i
+	import ${1:MODULE} (${2:func})
+snippet ia
+	import ${1:MODULE}
+snippet ii
+	import           ${1:MODULE}
+snippet iq
+	import qualified ${1:MODULE} as ${2:ALIAS}
+snippet im
+	import Data.Maybe (${1:maybe})
+snippet imq
+	import qualified Data.Maybe as ${1:M}
+snippet ie
+	import Data.Either (${1:either})
+snippet ieq
+	import qualified Data.Either as ${1:E}
+snippet il
+	import Data.List (${1:intercalate})
+snippet it
+	import Data.Text (${1:Text})
+snippet itq
+	import qualified Data.Text as ${1:T}
+snippet ilq
+	import qualified Data.List as ${1:L}
+snippet ibs
+	import qualified Data.ByteString.Char8 as BS
+snippet ibsq
+	import qualified Data.ByteString.Char8 as BS
+snippet ilbs
+	import qualified Data.ByteString.Lazy.Char8 as LBS
+snippet ilbsq
+	import qualified Data.ByteString.Lazy.Char8 as LBS
+snippet ps
+	putStrLn ${1:str}
+snippet u
+	undefined
+snippet nt
+	newtype ${1:T} = ${2:C} { ${3:f} :: ${4:T} }
+snippet ntt
+	newtype ${1:T} = ${2:C} ${3:T}
