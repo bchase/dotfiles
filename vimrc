@@ -15,6 +15,13 @@ Plugin 'mxw/vim-jsx'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'jparise/vim-graphql'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 call plug#begin()
@@ -27,6 +34,7 @@ let g:elm_format_two_spaces = 1
 syntax on
 " set t_Co=256
 " color dracula
+colorscheme default
 filetype on
 filetype plugin indent on
 
