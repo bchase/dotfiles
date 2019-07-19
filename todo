@@ -1,5 +1,8 @@
 
-  
+  make sure `vim/bundle` is all handled by Vundle, et al
+
+  symlink e.g. zshrc
+
   pr in ruby - puts and return e.g.
     cmd = "some line"
     puts cmd
@@ -9,7 +12,7 @@
     e.g. $ alias rbscript=~/.scripts/rbscript.rb
 
   gist -o -p foo
-    # [ ] grab gist id 
+    # [ ] grab gist id
     # [ ] full path = pwd + filename
     # [ ] get inode `File.stat('file').ino` to ~/.gists.yml w/ inode
     # [ ] write inode to ~/.gists.yml as inode: gist_id
@@ -18,7 +21,7 @@
     # w/ gist -p foo
     # inode # ? http://unix.stackexchange.com/questions/24192/portable-way-to-find-inode-number
 
-  hub fork 
+  hub fork
     set upstream (https://help.github.com/articles/configuring-a-remote-for-a-fork)
       $ git remote add upstream $ORIG_REPO
     sync (https://help.github.com/articles/syncing-a-fork)

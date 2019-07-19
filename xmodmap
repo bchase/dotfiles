@@ -3,3 +3,4 @@ keysym Caps_Lock = Control_L
 add Control = Control_L
 
 keycode 107 = Menu
+keycode 94 = Menu

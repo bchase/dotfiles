@@ -53,33 +53,25 @@ export PATH=$PATH:/usr/local/heroku/bin:/opt/android-sdk/platform-tools:/opt/and
 
 # aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
+fi
+if [ -f ~/.personal_aliases ]; then
+  . ~/.personal_aliases
 fi
 
 HIST_IGNORE_SPACE=true
 
-
-# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# http://stackoverflow.com/questions/10081293/install-npm-into-home-directory-with-distribution-nodejs-package-ubuntu
-# NPM packages in homedir
-NPM_PACKAGES="$HOME/.npm-packages"
+# nix
+. /home/bosco/.nix-profile/etc/profile.d/nix.sh
 
-# Tell our environment about user-installed node tools
-PATH="$NPM_PACKAGES/bin:$PATH"
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
-MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# stack (haskell)
+export PATH="$PATH:$HOME/.local/bin"
 
-# Tell Node about these packages
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
-export BROWSER=firefox
-# export ECTO_EDITOR=vim
+export AWS_DEFAULT_PROFILE=anatomy
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"

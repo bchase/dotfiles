@@ -13,7 +13,7 @@ alias h='cat ~/.zsh_history | grep'
 
 alias mdp='mkdir -p'
 
-alias open='gnome-open'
+alias open='xdg-open'
 alias o=open
 alias clip='xclip -sel clip'
 
@@ -110,13 +110,16 @@ alias to=' vim todo'
 alias re='ruby -pe'
 alias rv='ruby -v'
 
+alias st='bundle exec srb tc'
+
 alias r='rails'
 alias rs='rails server'
 alias rc='rails console'
 alias rr='rake routes'
+alias rrm='rake routes | m'
+alias rrg='rake routes | g'
 alias rg='rails generate'
 alias rd='rails destroy'
-alias rrg='rake routes | g'
 alias rdm='rake db:migrate'
 alias rds='rake db:migrate:status'
 alias rdr='rake db:rollback'
@@ -132,21 +135,26 @@ alias rsp='bundle exec rspec'
 alias ev='elixir -v'
 alias el='cd ~/dev/elixir'
 
+alias ghci='stack ghci'
 alias hask='cd ~/dev/haskell'
 sd() { stack ls dependencies | grep $1 }
 
+alias _iex='iex'
+alias iex='iex --erl $ERL_AFLAGS'
 alias i='iex'
 alias im='iex -S mix'
 alias imr='iex -S mix run'
 alias mec='mix ecto.create'
 alias mem='mix ecto.migrate'
 alias mecm='mix ecto.create && mix ecto.migrate'
-alias mps='iex -S mix phoenix.server'
-alias phs='iex -S mix phoenix.server'
+alias mps='iex -S mix phx.server'
+alias phs='iex -S mix phx.server'
 alias mpr='mix phoenix.routes'
 alias mprg='mix phoenix.routes | grep'
 alias mt='mix test'
+alias mtw='mix test.watch'
 alias imt='iex -S mix test'
+alias imtw='iex -S mix test.watch'
 alias imtt='iex -S mix test --trace'
 alias mdg='mix deps.get'
 alias mc='mix compile'
@@ -187,6 +195,7 @@ alias c='git commit -am'
 alias s='git status -s'
 alias github=hub
 alias gh=hub
+alias gitsha='git rev-parse HEAD'
 
 # alias gist='~/dev/ruby/gist/bin/gist'
 alias ugist='gist --update-by-name'

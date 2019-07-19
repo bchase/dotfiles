@@ -35,3 +35,5 @@ cp $temp_histfile $HISTFILE
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export FOO='bar'

@@ -29,13 +29,19 @@ Plugin 'Shougo/unite.vim'
 Plugin 'eagletmt/unite-haddock'
 Plugin 'vim-scripts/mips.vim'
 Plugin 'wlangstroth/vim-racket'
+Plugin 'godlygeek/tabular'
+Plugin 'purescript-contrib/purescript-vim'
+Plugin 'slim-template/vim-slim'
+Plugin 'w0rp/ale'
+Plugin 'leafgarland/typescript-vim'
+" Plug 'zackhsi/sorbet-lsp'
 call vundle#end()
 
 call plug#begin()
 Plug 'bchase/elm-vim'
 call plug#end()
-let g:elm_format_autosave = 1
-let g:elm_format_two_spaces = 1
+" let g:elm_format_autosave = 1
+" let g:elm_format_two_spaces = 1
 
 
 syntax on
@@ -161,7 +167,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = '_build\|deps\|node_modules\|DS_Store\|/.git'
 
 
-let g:netrw_browsex_viewer = 'google-chrome'
+let g:netrw_browsex_viewer = 'firefox'
 
 " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " let mapleader=','
