@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+
+
+module Volume
+  def self.get
+    %x[ amixer get 'Master' ].chomp[/\[(\d+)%\]/, 1].to_i
+  end
+
+  def self.set(vol)
+    vol = vol.to_i
+
+    if vol.is_a?(Integer) && vol >= 0 && vol <= 100
+      %x[ amixer set 'Master' '#{vol}%' ]
+    end
+  end
+
+  def self.change(offset)
+    vol = get()
+    set(vol + offset.to_i)
+  end
+end
+
+
+
+Volume.change(ARGV[0])
