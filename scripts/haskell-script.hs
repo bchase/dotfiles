@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack runghc --resolver lts-9.14 --install-ghc
+-- stack runghc --resolver lts-9.14 --install-ghc --package text
 {-# LANGUAGE CPP #-}
 
 import           System.Environment (getArgs)

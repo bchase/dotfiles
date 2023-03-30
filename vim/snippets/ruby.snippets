@@ -391,6 +391,8 @@ snippet tas
 # bchase
 # bchase
 # bchase
+snippet hr
+	=> ${1}
 snippet p
 	binding.pry
 snippet rp
@@ -412,6 +414,7 @@ snippet rrr
 	require 'json'
 	require 'ostruct'
 	require 'yaml'
+	require 'csv'
 	# require 'nokogiri'
 	# require 'active_support/all'
 	# require 'active_support/core_ext/klass'
@@ -437,6 +440,10 @@ snippet di
 	def initialize(${1:*args})
 		${2}
 	end
+snippet dm
+	def ${1}
+		@${1} ||= ${2}
+	end
 snippet c
 	class ${1:ClassName}
 		${2}
@@ -456,11 +463,13 @@ snippet mdth
 		end
 		alias :to_hash :to_h
 	end
-
+snippet os
+	OpenStruct.new(${1})
 
 # rspec
 
 snippet rrh
 	require 'rails_helper'
 
-
+snippet dc
+	described_class

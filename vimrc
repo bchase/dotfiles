@@ -34,13 +34,16 @@ Plugin 'purescript-contrib/purescript-vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'w0rp/ale'
 Plugin 'leafgarland/typescript-vim'
-" Plug 'zackhsi/sorbet-lsp'
+Plugin 'pbrisbin/vim-syntax-shakespeare'
+Plugin 'alx741/yesod.vim'
 call vundle#end()
 
 call plug#begin()
 Plug 'bchase/elm-vim'
+Plug 'unisonweb/unison', { 'rtp': 'editor-support/vim' }
+" Plug 'zackhsi/sorbet-lsp'
 call plug#end()
-" let g:elm_format_autosave = 1
+let g:elm_format_autosave = 1
 " let g:elm_format_two_spaces = 1
 
 
@@ -77,6 +80,14 @@ set foldlevelstart=20
 "ignore case when all lower
 set ic
 set scs
+
+
+" ignore case for ex-mode autocomplete
+set ignorecase
+set smartcase
+set wildignorecase
+" set completion-ignore-case on
+
 
 "move to front/end of line
 nnoremap <C-h> ^
@@ -193,6 +204,11 @@ function GetPhoenixControllerName()
   return g:phoenix_cname
 endfunction
 
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
+
+
 " function RunRubyNoSingleQuotes(ruby)
 "   return system("ruby -e '" . a:ruby . "'")
 " endfunction
@@ -214,3 +230,9 @@ endfunction
 
 " inline elixir func
 " 0/) do\\\a,jjA:jjJjddkw
+
+let b:ale_linters = ['ruby']
+let g:ale_linters_explicit = 1
+
+
+let g:ctrlp_custom_ignore = '\v.*\.elm[io]$'

@@ -2,10 +2,16 @@
 	name = Brad Chase
 	email = brad@these8bits.com
 [push]
-	default = simple
+	default = current
 [core]
 	editor = vim
 	excludesfile = /home/bosco/.gitignore
 [alias]
 	thank = blame
 	praise = blame
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/

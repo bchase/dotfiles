@@ -25,7 +25,6 @@ alias 2mp3='~/.scripts/2mp3.rb'
 alias sagi='sudo apt-get install'
 alias sagiy='sudo apt-get install -y'
 alias agd='apt-cache show'
-alias gsm='gnome-system-monitor'
 alias msm='mate-system-monitor'
 alias ack=ack-grep
 
@@ -51,17 +50,16 @@ alias llad='ls -lha | grep "^d"'
 alias f='fg'
 alias ff='fg'
 alias fgf='fg'
-alias fgj='fg'
 alias f1='fg %1'
-alias fg1='fg %1'
 alias f2='fg %2'
-alias fg2='fg %2'
 alias f3='fg %3'
-alias fg3='fg %3'
 alias f4='fg %4'
-alias fg4='fg %4'
 alias f5='fg %5'
-alias fg5='fg %5'
+alias fq='fg %1'
+alias fw='fg %2'
+alias fe='fg %3'
+alias fr='fg %4'
+alias ft='fg %5'
 
 alias g='grep'
 alias gi='grep -i'
@@ -100,7 +98,8 @@ alias ph=' vim ~/.pry_history'
 alias deb=' vim ~/.dotfiles/debian.sh'
 alias bits=' vim ~/.bits'
 alias vh=' vim ~/.dotfiles/vim/snippets/haskell.snippets'
-alias ve=' vim ~/.dotfiles/vim/snippets/elixir.snippets'
+alias ve=' vim ~/.dotfiles/vim/snippets/elm.snippets'
+alias vex=' vim ~/.dotfiles/vim/snippets/elixir.snippets'
 alias vr=' vim ~/.dotfiles/vim/snippets/ruby.snippets'
 alias vmd=' vim ~/.dotfiles/vim/snippets/markdown.snippets'
 alias vrc=' vim ~/.dotfiles/vimrc'
@@ -115,9 +114,12 @@ alias st='bundle exec srb tc'
 alias r='rails'
 alias rs='rails server'
 alias rc='rails console'
-alias rr='rake routes'
-alias rrm='rake routes | m'
-alias rrg='rake routes | g'
+alias rt='rake -T'
+alias rtg='rake -T | g'
+alias rtm='rake -T | m'
+alias rr='rails routes'
+alias rrm='rails routes | m'
+alias rrg='rails routes | g'
 alias rg='rails generate'
 alias rd='rails destroy'
 alias rdm='rake db:migrate'
@@ -132,12 +134,16 @@ alias t='rake test'
 alias rspec='rspec --color --format doc'
 alias rsp='bundle exec rspec'
 
+alias elm-emp='~/dev/elm/emp/bin/emp'
+
 alias ev='elixir -v'
 alias el='cd ~/dev/elixir'
 
 alias ghci='stack ghci'
 alias hask='cd ~/dev/haskell'
 sd() { stack ls dependencies | grep $1 }
+
+alias ucm='/home/bosco/dev/unison/ucm'
 
 alias _iex='iex'
 alias iex='iex --erl $ERL_AFLAGS'
@@ -164,6 +170,8 @@ alias mdgr='mix deps | grep'
 alias ni='npm install'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
+alias yicf='yarn install --check-files'
+alias ycf='yarn --check-files'
 
 
 alias b='bundle'
@@ -177,10 +185,12 @@ alias webshare='ruby -run -e httpd . -p 5555'
 
 alias pj='python -mjson.tool'
 
-alias gs='git status -s'
+alias gs='git status -s --untracked-files=no'
+alias gsm='git status -s | m'
 alias ga='git add'
 alias gaa='git add .'
 alias gau='git add -u .'
+alias gca='git commit -a'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gcma='git commit -am'
@@ -191,10 +201,22 @@ alias gll='git log --oneline --decorate --graph'
 alias gld='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias gdh='git diff HEAD'
 alias gdl='git diff "HEAD^"'
+alias gco='git checkout'
+# gco() { git checkout "$1" -- }
+# # https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+# # https://stackoverflow.com/questions/19771455/git-alias-parameter-completion-doesnt-work-in-zsh
+# # https://stackoverflow.com/questions/19771455/git-alias-parameter-completion-doesnt-work-in-zsh
+# # https://stackoverflow.com/questions/9869227/git-autocomplete-in-bash-aliases
+# if [ -f "/usr/share/bash-completion/completions/git" ]; then
+#   source /usr/share/bash-completion/completions/git
+#   __git_complete gco _git_checkout
+# else
+#   echo "Error loading git completions"
+# fi
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
 alias c='git commit -am'
 alias s='git status -s'
-alias github=hub
-alias gh=hub
 alias gitsha='git rev-parse HEAD'
 
 # alias gist='~/dev/ruby/gist/bin/gist'
