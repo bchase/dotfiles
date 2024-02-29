@@ -258,8 +258,6 @@ snippet rt
 snippet rtp
 
 	|> redirect(to: ${1:user}_path(conn, :${2:action}))
-snippet ph
-	${1:user}_path(conn, :${2:action})
 snippet ts
 	to_string ${1:val}
 snippet tss
@@ -357,14 +355,12 @@ snippet cu
 	current_user
 snippet cuu
 	conn.assigns.current_user
-snippet h
-	=> ${1}
 snippet hr
 	=> ${1}
 snippet ree
 	Regex.${1:run}(~r{${2:re}}, ${3:str}) ${4}
 snippet a
-	:${1:atom}
+	-> ${1}
 snippet -
 	`ReplaceCurrentLineWithSnakeCase()`
 snippet dpv
@@ -395,3 +391,33 @@ snippet optdd
 	@optional_attrs [${1:atom}]
 snippet opt
 	@optional_attrs${1}
+snippet h
+	<%= ${1} %>
+snippet lc
+	<.${1}/>
+snippet lcc
+	<.${1}>
+		${3}
+	</.${2}>
+snippet sl
+	<:${1}/>
+snippet sll
+	<:${1}>
+		${3}
+	</:${2}>
+snippet ht
+	<${1}/>
+snippet htt
+	<${1} ${3}>${4}</${2}>
+snippet httt
+	<${1} ${3}/>
+	${4}
+	</${2}>
+snippet ps
+	~p{${1}}
+snippet he
+	~H"""
+	${1}
+	"""
+snippet tw
+	@tag :wip
