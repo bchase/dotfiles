@@ -1,0 +1,2 @@
+qmk flash -kb crkbd -km bchase -bl dfu -c bchase.json
+qmk flash -kb crkbd -km default -bl dfu -c bchase.json
