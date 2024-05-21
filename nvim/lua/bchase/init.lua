@@ -30,3 +30,11 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "80"
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("FixTerraformCommentString", { clear = true }),
+  callback = function(ev)
+    vim.bo[ev.buf].commentstring = "// %s"
+  end,
+  pattern = { "gleam" },
+})
