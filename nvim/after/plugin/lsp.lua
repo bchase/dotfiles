@@ -39,10 +39,18 @@ require('mason-lspconfig').setup({
 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require('lspconfig')
 
-require('lspconfig')['elixirls'].setup({
+lspconfig.elixirls.setup({
   capabilities = capabilities,
 })
+lspconfig.gleam.setup({
+  capabilities = capabilities,
+})
+
+-- require('lspconfig')['elixirls'].setup({
+--   capabilities = capabilities,
+-- })
 -- require('lspconfig').elixirls.setup({
 --   cmd = { "/home/bosco/dev/elixir/elixir-ls/bin/language_server.sh" },
 --   on_attach = on_attach,

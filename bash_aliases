@@ -6,7 +6,7 @@ alias wh='which'
 
 alias more='less'
 
-alias v='vim'
+alias v='nvim'
 alias p='pry'
 alias m='more'
 alias h='cat ~/.zsh_history | grep'

@@ -4,4 +4,6 @@ source ~/.vimrc
 
 " set paste
 
+set clipboard+=unnamedplus
+
 lua require('bchase')

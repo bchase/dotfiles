@@ -273,9 +273,9 @@ snippet ios
 snippet gs
 	GenServer
 snippet reply
-	{:reply, ${1:resp}, ${2:state}}
+	{:reply, ${1:resp}, ${2:socket}}
 snippet nr
-	{:noreply, ${1:state}}
+	{:noreply, ${1:socket}}
 snippet e
 	Enum.${1:map}(&${2})
 snippet ei
@@ -421,3 +421,5 @@ snippet he
 	"""
 snippet tw
 	@tag :wip
+snippet sa
+	socket.assigns.${1}
