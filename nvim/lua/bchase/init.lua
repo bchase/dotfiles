@@ -1,4 +1,5 @@
 require("bchase.remap")
+require("bchase.packer")
 
 vim.opt.guicursor = ""
 
