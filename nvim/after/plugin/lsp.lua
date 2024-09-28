@@ -31,7 +31,8 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'elixirls'},
+  -- ensure_installed = {'elixirls', 'gopls'},
+  ensure_installed = {'elixirls', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
   },
@@ -46,6 +47,18 @@ lspconfig.elixirls.setup({
 })
 lspconfig.gleam.setup({
   capabilities = capabilities,
+})
+lspconfig.gopls.setup({
+  -- capabilities = capabilities,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
 })
 
 -- require('lspconfig')['elixirls'].setup({
