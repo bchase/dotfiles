@@ -1,0 +1,39 @@
+snippet pp
+	|> ${1}
+snippet p
+
+	|> ${1}
+snippet a
+	-> ${1}
+snippet t
+	#(${1:fst}, ${2:snd})
+snippet iio
+	import gleam/io
+snippet swio
+	pub fn suppress_io_warnings() { io.debug(Nil) }
+snippet io
+	import gleam/option.{type Option, Some, None}
+snippet swo
+	pub fn suppress_option_warnings() -> List(Option(Nil)) { [None, Some(Nil)] }
+snippet ff
+	fn(${1:x}) { ${2:x} }
+snippet f
+	fn(${1:x}) {
+		${2:x}
+	}
+snippet fn
+	fn ${1:func}(${2:x}) -> ${3:Nil} {
+		${4:x}
+	}
+snippet pfn
+	pub fn ${1:func}(${2:x}) -> ${3:Nil} {
+		${4:x}
+	}
+snippet lao
+	let assert Ok(${1:_}) = ${2:x}
+snippet lt
+	let #(${1:_}) = ${2:x}
+snippet app
+	app(fn(k: Context) {
+		$1
+	})
