@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "elixir", "eex", "heex", "surface", "elm", "haskell", "ruby", "javascript", "typescript", "css", "scss", "html", "erlang", "gleam", "go", "lua", "vim", "vimdoc", "query" },
+  ensure_installed = { "elixir", "eex", "heex", "surface", "elm", "haskell", "ruby", "javascript", "typescript", "css", "scss", "html", "erlang", "gleam", "go", "lua", "vim", "vimdoc", "query", "rust", "toml" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -39,3 +39,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- Treesitter folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'

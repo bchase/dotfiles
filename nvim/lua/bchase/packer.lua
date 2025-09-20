@@ -29,6 +29,12 @@ return require('packer').startup(function(use)
       {'hrsh7th/nvim-cmp'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'L3MON4D3/LuaSnip'},
+      {'hrsh7th/cmp-nvim-lua'},
+      {'hrsh7th/cmp-nvim-lsp-signature-help'},
+      {'hrsh7th/cmp-vsnip'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/vim-vsnip'},
     }
   }
   use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
@@ -63,4 +69,8 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+
+  use('simrat39/rust-tools.nvim')
+
+  use('puremourning/vimspector')
 end)

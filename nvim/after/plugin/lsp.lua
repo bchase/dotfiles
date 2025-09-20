@@ -40,15 +40,17 @@ require('mason-lspconfig').setup({
 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
-lspconfig.elixirls.setup({
+vim.lsp.config('elixirls', {
   capabilities = capabilities,
 })
-lspconfig.gleam.setup({
+-- require('lspconfig').gleam.setup({})
+vim.lsp.config('gleam', {
   capabilities = capabilities,
 })
-lspconfig.gopls.setup({
+vim.lsp.enable('gleam')
+vim.lsp.config('gopls', {
   -- capabilities = capabilities,
   settings = {
     gopls = {
@@ -69,6 +71,13 @@ lspconfig.gopls.setup({
 --   on_attach = on_attach,
 --   capabilities = capabilities,
 -- })
+--
+vim.lsp.config('ts_ls', {
+  cmd = { '/home/bosco/.asdf/installs/nodejs/23.5.0/bin/typescript-language-server', '--stdio' },
+  -- on_attach = function(client)
+  --   client.server_capabilities.documentFormattingProvider = false
+  -- end
+})
 
 
 
