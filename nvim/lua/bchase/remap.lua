@@ -4,6 +4,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Explore)
 
 -- -- -- bchase -- --
 
+-- swap `;` / `:` in visual modes (visual & visual-block)
+vim.keymap.set('x', ';', ':', { noremap = true })
+vim.keymap.set('x', ':', ';', { noremap = true })
+
 -- jump to next error
 vim.keymap.set("n", "<leader>ge", function()
   -- -- vim.diagnostic.open_float
@@ -33,3 +37,6 @@ for i=0,25 do vim.keymap.set("n", "<leader><leader>"..low(i),
 -- -- for i=0,25 do vim.keymap.set("n", "m"..upp(i), "m"..low(i)) end
 -- -- for i=0,25 do vim.keymap.set("n", "'"..low(i), "'"..upp(i)) end
 -- -- for i=0,25 do vim.keymap.set("n", "'"..upp(i), "'"..low(i)) end
+
+-- show lsp code actions
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
