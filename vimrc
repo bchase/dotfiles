@@ -38,11 +38,11 @@ Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'alx741/yesod.vim'
 call vundle#end()
 
-call plug#begin()
-Plug 'bchase/elm-vim'
-Plug 'unisonweb/unison', { 'rtp': 'editor-support/vim' }
+" call plug#begin()
+" Plug 'bchase/elm-vim'
+" Plug 'unisonweb/unison', { 'rtp': 'editor-support/vim' }
 " Plug 'zackhsi/sorbet-lsp'
-call plug#end()
+" call plug#end()
 let g:elm_format_autosave = 1
 " let g:elm_format_two_spaces = 1
 
@@ -236,3 +236,10 @@ let g:ale_linters_explicit = 1
 
 
 let g:ctrlp_custom_ignore = '\v.*\.elm[io]$'
+
+" augroup GleamDerivOnSave
+"   autocmd!
+"   " autocmd BufWritePost *.py silent! !flake8 %
+"   " " NOTE: `%` is abs path to curr file ^
+"   autocmd BufWritePost *.gleam silent! !make deriv
+" augroup END
