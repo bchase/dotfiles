@@ -2,5 +2,9 @@ remove Lock = Caps_Lock
 keysym Caps_Lock = Control_L
 add Control = Control_L
 
-keycode 107 = Menu
-keycode 94 = Menu
+! ! t440s
+! keycode 107 = Menu
+! keycode 94 = Menu
+
+! p1g7
+! keycode 125 = Menu

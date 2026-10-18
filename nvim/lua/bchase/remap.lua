@@ -18,6 +18,20 @@ vim.keymap.set("n", "<leader>gn", function()
   vim.diagnostic.goto_next()
 end)
 
+-- save file then reload buffer (for running gleam `deriv`)
+vim.keymap.set('n', '<Leader>s', function()
+  -- 1. Save the file immediately
+  vim.cmd("write")
+
+  -- 2. Defer the reload execution by X ms
+  vim.defer_fn(function()
+    -- Ensure the buffer still exists before attempting to reload
+    if vim.api.nvim_buf_is_valid(0) then
+      vim.cmd("mkview | e! | loadview")
+    end
+  end, 2000)
+end, { silent = true, desc = 'Save and reload file after delay, preserving view' })
+
 -- MARKS
 --   * (bchase) map leader x2 lowercase mark to jump to global mark
 local low = function(i) return string.char(97+i) end

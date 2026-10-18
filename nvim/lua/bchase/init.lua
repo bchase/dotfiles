@@ -1,5 +1,58 @@
+vim.tbl_islist = vim.islist
+vim.pack.add {{
+  src = 'https://github.com/mrcjkb/rustaceanvim',
+  version = vim.version.range('^9')
+}}
+
+-- vim.g.rustaceanvim = {
+--   server = {
+--     default_settings = {
+--       ['rust-analyzer'] = {
+--         procMacro = {
+--           enable = true,
+--         },
+--         cargo = {
+--           loadOutDirsFromCheck = true,
+--         },
+--         checkOnSave = {
+--           command = "clippy",
+--         },
+--       },
+--     },
+--   },
+-- }
+-- if vim.lsp.config then
+--   vim.lsp.config('rust-analyzer', {
+--     settings = {
+--       procMacro = { enable = true },
+--       cargo = { loadOutDirsFromCheck = true },
+--       checkOnSave = { command = "clippy" },
+--       -- ["rust-analyzer"] = {
+--       --   procMacro = { enable = true },
+--       --   cargo = { loadOutDirsFromCheck = true },
+--       --   checkOnSave = { command = "clippy" },
+--       -- }
+--     }
+--   })
+-- end
+-- -- require("lspconfig").rust_analyzer.setup({
+-- --   settings = {
+-- --     ["rust-analyzer"] = {
+-- --       procMacro = {
+-- --         enable = true,
+-- --       },
+-- --       cargo = {
+-- --         buildScripts = {
+-- --           enable = true,
+-- --         },
+-- --       },
+-- --     },
+-- --   },
+-- -- })
+
 require("bchase.remap")
 require("bchase.packer")
+require("bchase.lsp-remote")
 
 vim.opt.guicursor = ""
 
@@ -39,6 +92,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   pattern = { "gleam" },
 })
+
+vim.g.netrw_browsex_viewer = "xdg-open"
+
+vim.g.loaded_matchit = 0
+-- vim.g.loaded_netrw = 0
+vim.cmd('packadd matchit')
 
 -- -- RUST -- https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
 -- --

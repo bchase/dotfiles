@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
   -- }
   use {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     run = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
@@ -70,7 +71,30 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
-  use('simrat39/rust-tools.nvim')
+  -- use('simrat39/rust-tools.nvim')
+  -- use { 'mrcjkb/rustaceanvim', version = '^5', ft = { 'rust' } }
+  -- use {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^5',
+  --   ft = { 'rust' }
+  --   -- ,
+  --   -- config = function()
+  --   --   vim.g.rustaceanvim = {
+  --   --     server = {
+  --   --       default_settings = {
+  --   --         ['rust-analyzer'] = {
+  --   --           procMacro = {
+  --   --             enable = true,
+  --   --           },
+  --   --           cargo = {
+  --   --             loadOutDirsFromCheck = true,
+  --   --           },
+  --   --         },
+  --   --       },
+  --   --     },
+  --   --   }
+  --   -- end
+  -- }
 
   use('puremourning/vimspector')
 end)

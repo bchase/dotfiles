@@ -93,7 +93,7 @@ alias cprn='cp -rn'
 alias mvi='mv -i'
 
 alias ba=' vim ~/.bash_aliases && source ~/.bash_aliases'
-alias zh=' vim "+normal G" ~/.zsh_history'
+alias zh=' nvim "+normal G" ~/.zsh_history'
 alias ph=' vim ~/.pry_history'
 alias deb=' vim ~/.dotfiles/debian.sh'
 alias bits=' vim ~/.bits'

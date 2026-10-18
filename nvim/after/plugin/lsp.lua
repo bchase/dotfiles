@@ -1,3 +1,6 @@
+-- require('lspconfig').rust_analyzer.setup = function() end
+vim.lsp.config.rust_analyzer.setup = function() end
+
 -- local lsp = require('lsp-zero')
 
 -- lsp.preset('recommended')
@@ -17,7 +20,7 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.extend_lspconfig()
 
 lsp_zero.preset('recommended')
-
+-- lsp_zero.skip_server_setup({'rust_analyzer'})
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
@@ -33,9 +36,19 @@ require('mason-lspconfig').setup({
   -- with the ones you want to install
   -- ensure_installed = {'elixirls', 'gopls'},
   ensure_installed = {'elixirls', 'gopls'},
-  handlers = {
-    lsp_zero.default_setup,
+  automatic_enable = {
+    exclude = { "rust_analyzer" } -- Add the LSP names you want to ignore here
   },
+  handlers = {
+    -- 1. This default handler catches everything EXCEPT rust_analyzer
+    function(server_name)
+      if server_name ~= "rust_analyzer" then
+        lsp_zero.default_setup(server_name)
+      end
+    end,
+    -- 2. Provide a blank dummy function for rust_analyzer to completely mute lsp-zero's auto-setup
+    ["rust_analyzer"] = function() end,
+  }
 })
 
 
@@ -62,6 +75,39 @@ vim.lsp.config('gopls', {
     },
   },
 })
+
+-- vim.lsp.config('rust_analyzer', {
+--   settings = {
+--     ["rust-analyzer"] = {
+--       cargo = {
+--         allFeatures = true,
+--         buildScripts = {
+--           enable = true,
+--         },
+--       },
+--       procMacro = {
+--         enable = true,
+--         attributes = {
+--           enable = true, -- Tracks attributes inside GPUI render loops
+--         },
+--       },
+--       -- FIX: Change "checkOnSave" to "check"
+--       check = {
+--         command = "clippy",       -- Uses clippy for lints
+--       },
+--       diagnostics = {
+--         enable = true,
+--       },
+--     },
+--   },
+-- })
+-- vim.lsp.enable('rust_analyzer')
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "rust",
+--   callback = function(args)
+--     vim.lsp.start({ name = "rust_analyzer" }, { bufnr = args.buf })
+--   end,
+-- })
 
 -- require('lspconfig')['elixirls'].setup({
 --   capabilities = capabilities,

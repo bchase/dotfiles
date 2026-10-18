@@ -36,6 +36,7 @@ Plugin 'w0rp/ale'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'alx741/yesod.vim'
+" Plugin 'https://github.com/kana/vim-matchit'
 call vundle#end()
 
 " call plug#begin()
@@ -243,3 +244,5 @@ let g:ctrlp_custom_ignore = '\v.*\.elm[io]$'
 "   " " NOTE: `%` is abs path to curr file ^
 "   autocmd BufWritePost *.gleam silent! !make deriv
 " augroup END
+
+set guicursor=a:block
