@@ -1,3 +1,30 @@
+local ts = require('nvim-treesitter')
+
+-- Install parsers you want upfront
+local augroup = vim.api.nvim_create_augroup('treesitter', { clear = true })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = { '*' },
+  callback = function(event)
+    local lang = vim.treesitter.language.get_lang(event.match)
+    if not lang then return end
+
+    local ok = pcall(vim.treesitter.start, event.buf, lang)
+    if not ok then
+      -- Try auto-installing if parser is missing
+      local available = ts.get_available()
+      if vim.tbl_contains(available, lang) then
+        ts.install({ lang })
+      end
+      return
+    end
+
+    -- vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    -- vim.wo[event.buf].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end,
+})
+
 -- require'nvim-treesitter.configs'.setup {
 --   -- A list of parser names, or "all" (the five listed parsers should always be installed)
 --   ensure_installed = { "elixir", "eex", "heex", "surface", "elm", "haskell", "ruby", "javascript", "typescript", "css", "scss", "html", "erlang", "gleam", "go", "lua", "vim", "vimdoc", "query", "rust", "toml" },
