@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+HISTSIZE=10000
+SAVEHIST=10000
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -40,7 +43,17 @@ ZSH_THEME="bchase"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+
+# # append completions to fpath
+# fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# # initialise completions with ZSH's compinit
+# autoload -Uz compinit && compinit
+
+export ASDF_DATA_DIR="/home/bosco/.asdf"
+export PATH="${ASDF_DATA_DIR}/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+plugins=(git gh asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,17 +77,34 @@ HIST_IGNORE_SPACE=true
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# nix
-. /home/bosco/.nix-profile/etc/profile.d/nix.sh
+# # nix
+# . /home/bosco/.nix-profile/etc/profile.d/nix.sh
 
 # stack (haskell)
 export PATH="$PATH:$HOME/.local/bin"
 
 
-export AWS_DEFAULT_PROFILE=anatomy
+# export AWS_DEFAULT_PROFILE=anatomy
 
 
 export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# rebar3
+export PATH=$PATH:/home/bosco/.cache/rebar3/bin
+
+# fly.io
+export PATH=$PATH:/home/bosco/.fly/bin
+
+# npm global installs
+export PATH=$PATH:`npm config get prefix`/bin
+
+# export EDITOR=nvim
+export EDITOR="$HOME/nvim/nvim-linux-x86_64--nightly--0_13/bin/nvim"
+
+. "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/bosco/.opencode/bin:$PATH
